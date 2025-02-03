@@ -116,8 +116,8 @@
         <h1 class="font-bold text-gray-800 text-6xl md:text-7xl lg:text-8xl"><span class="text-purple-700" >Front</span>end Developer</h1>
         <p class="text-xl text-gray-500 pt-6">I'm a frontend developer based in Nigeria, I'll help you build beautiful websites your users will love</p>
         <div class="pt-7 flex justify-between w-[300px]">
-          <button class="bg-gray-800 text-white shadow-lg py-1 px-3 rounded-md text-md font-bold">Get in Touch</button>
-          <button class="bg-gray-200 text-gray-800 shadow-lg py-1 px-3 rounded-md text-md font-bold">Browse Projects</button>
+          <button class="bg-gray-800 text-white shadow-lg py-1 px-3 rounded-md text-md font-bold" id="openModalBtnMain">Get in Touch</button>
+          <button class="bg-gray-200 text-gray-800 shadow-lg py-1 px-3 rounded-md text-md font-bold" id="project2">Browse Projects</button>
         </div>
       </div>
       <div class="w-full flex justify-center">
@@ -299,7 +299,7 @@
         </section>
       </div>
     </div>
-    <footer class="w-full bg-gray-800">
+    <footer class="w-full bg-gray-800 text-center">
       <p class="py-10 px-4 text-gray-400">&copy 2025. All rights resrved.</p>
     </footer>
     
@@ -346,6 +346,22 @@
       })
     })
 
+    const project2 = document.getElementById('project2');
+    window.addEventListener('scroll', ()=>{
+      if(window.scrollY > 100){
+        backToTop.style.display = 'block'
+      }else{
+        backToTop.style.display = 'block'
+      }
+    })
+
+    project2.addEventListener('click', ()=>{
+      window.scrollTo({
+        top: 2550,
+        behavior: 'smooth'
+      })
+    })
+
     const about = document.getElementById('about');
     window.addEventListener('scroll', ()=>{
       if(window.scrollY > 100){
@@ -362,6 +378,7 @@
       })
     })
     const openModalBtn = document.getElementById('openModalBtn');
+    const openModalBtnMain = document.getElementById('openModalBtnMain');
     const openModal = document.getElementById('openModal');
     const openModalBtnMIN = document.getElementById('openModalBtnMIN');
     const closeModalBtns = document.querySelectorAll('#closeModalBtn, #closeModalBtn2, #closeModal2, #closeModalBtnMIN');
@@ -370,6 +387,10 @@
 
   // Open modal when button is clicked
   openModalBtnMIN.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+  });
+
+  openModalBtnMain.addEventListener('click', () => {
     modal.classList.remove('hidden');
   });
 
